@@ -1,10 +1,7 @@
-variable "cidr_block" {
-  description = "Please provide CIDR block for VPC"
+variable "location" {
   type        = string
-  default     = ""
 }
-variable "region" {
-  description = "Please provide a region name"
+variable "address_space " {
   type        = string
 }
 variable "tags" {
@@ -12,15 +9,17 @@ variable "tags" {
   type        = map(any)
   default     = {}
 }
-variable "public_subnet1" {
-  description = "Please provide subnet CIDR block"
+variable "storage_account_name" {
   type        = string
-  default     = ""
 }
-variable "public_subnet2" {
+variable "address_prefix" {
   description = "Please provide subnet CIDR block"
   type        = string
   default     = ""
+
+
+
+  
 }
 variable "public_subnet3" {
   description = "Please provide subnet CIDR block"

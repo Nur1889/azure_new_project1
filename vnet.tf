@@ -1,7 +1,7 @@
 # terraform {
 #   backend "azurerm" {
 #     resource_group_name  = "StorageAccount-ResourceGroup"
-#     storage_account_name = "team2project"
+#     storage_account_name = var.storage_account_name
 #     container_name       = "tfstate"
 #     key                  = "path/to/my/key/prod.terraform.tfstate"
 #     access_key = "pbdzjjYmnpXTUmYIi/bLxl5qhq+iDbkHXCTFe+UhTwi1UoF1ZvzOszr/KcZFXtkvLPgm+YiyX6NI+AStIDDJsA=="
@@ -16,11 +16,7 @@
 #   features {}
 # }
 
-# Create a resource group
-resource "azurerm_resource_group" "terraform" {
-  name     = "terraform-resources"
-  location = "westus"
-}
+
 resource "azurerm_network_security_group" "terraform" {
   name                = "terraform-security-group"
   location            = azurerm_resource_group.terraform.location
@@ -45,11 +41,11 @@ resource "azurerm_virtual_network" "terraform" {
   name                = "terraform_vnet"
   location            = azurerm_resource_group.terraform.location
   resource_group_name = azurerm_resource_group.terraform.name
-  address_space       = ["10.0.0.0/16"]
+  address_space       = var.address_space 
 
   subnet {
     name           = "subnet1"
-    address_prefix = "10.0.1.0/24"
+    address_prefix = var.address_prefix
     security_group = azurerm_network_security_group.terraform.id
   }
 
