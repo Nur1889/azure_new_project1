@@ -1,20 +1,20 @@
-terraform {
-  backend "azurerm" {
-    resource_group_name  = "StorageAccount-ResourceGroup"
-    storage_account_name = "team2project"
-    container_name       = "tfstate"
-    key                  = "path/to/my/key/prod.terraform.tfstate"
-    access_key = "pbdzjjYmnpXTUmYIi/bLxl5qhq+iDbkHXCTFe+UhTwi1UoF1ZvzOszr/KcZFXtkvLPgm+YiyX6NI+AStIDDJsA=="
-  }
-}
+# terraform {
+#   backend "azurerm" {
+#     resource_group_name  = "StorageAccount-ResourceGroup"
+#     storage_account_name = "team2project"
+#     container_name       = "tfstate"
+#     key                  = "path/to/my/key/prod.terraform.tfstate"
+#     access_key = "pbdzjjYmnpXTUmYIi/bLxl5qhq+iDbkHXCTFe+UhTwi1UoF1ZvzOszr/KcZFXtkvLPgm+YiyX6NI+AStIDDJsA=="
+#   }
+# }
 
 
 
 
-# Configure the Microsoft Azure Provider
-provider "azurerm" {
-  features {}
-}
+# # Configure the Microsoft Azure Provider
+# provider "azurerm" {
+#   features {}
+# }
 
 # Create a resource group
 resource "azurerm_resource_group" "terraform" {
@@ -65,26 +65,26 @@ resource "azurerm_virtual_network" "terraform" {
   }
 }
 
-output "vnet_id" {
-    value = azurerm_virtual_network.terraform.id
-}
+# output "vnet_id" {
+#     value = azurerm_virtual_network.terraform.id
+# }
 
 
-output "subnet"{
-    value = azurerm_virtual_network.terraform.subnet
-}
+# output "subnet"{
+#     value = azurerm_virtual_network.terraform.subnet
+# }
 
-output "subnet_id" {
-  value = "${azurerm_virtual_network.terraform.subnet.*.id[1]}"
+# output "subnet_id" {
+#   value = "${azurerm_virtual_network.terraform.subnet.*.id[1]}"
 
-}
-output "vnet_name"{
-    value = azurerm_virtual_network.terraform.name
-}
-output resource_group_name {
-  value = azurerm_resource_group.terraform.name
-}
+# }
+# output "vnet_name"{
+#     value = azurerm_virtual_network.terraform.name
+# }
+# output resource_group_name {
+#   value = azurerm_resource_group.terraform.name
+# }
 
-output resource_group_location {
-   value = azurerm_resource_group.terraform.location
-}
+# output resource_group_location {
+#    value = azurerm_resource_group.terraform.location
+# }
