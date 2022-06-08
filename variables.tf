@@ -4,11 +4,7 @@ variable "location" {
 variable "address_space " {
   type        = string
 }
-variable "tags" {
-  description = "Please provide a tag for resources"
-  type        = map(any)
-  default     = {}
-}
+
 variable "storage_account_name" {
   type        = string
 }
@@ -16,10 +12,6 @@ variable "address_prefix" {
   description = "Please provide subnet CIDR block"
   type        = string
   default     = ""
-
-
-
-  
 }
 variable "public_subnet3" {
   description = "Please provide subnet CIDR block"
