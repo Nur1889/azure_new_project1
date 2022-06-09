@@ -4,7 +4,7 @@
 #     storage_account_name = var.storage_account_name
 #     container_name       = "tfstate"
 #     key                  = "path/to/my/key/prod.terraform.tfstate"
-#     access_key = "pbdzjjYmnpXTUmYIi/bLxl5qhq+iDbkHXCTFe+UhTwi1UoF1ZvzOszr/KcZFXtkvLPgm+YiyX6NI+AStIDDJsA=="
+#     access_key = var.access_key
 #   }
 # }
 
@@ -46,17 +46,17 @@ resource "azurerm_virtual_network" "terraform" {
   subnet {
     name           = "subnet1"
     address_prefix = var.address_prefix
-    security_group = azurerm_network_security_group.terraform.id
+    security_group = var.azur-network-security
   }
 
   subnet {
     name           = "subnet2"
-    address_prefix = "10.0.2.0/24"
+    address_prefix = var.public_subnet2
     security_group = azurerm_network_security_group.terraform.id
   }
   subnet {
     name           = "subnet3"
-    address_prefix = "10.0.3.0/24"
+    address_prefix = "var.subnet3-address_prefix"
     security_group = azurerm_network_security_group.terraform.id
   }
 }

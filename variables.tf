@@ -24,7 +24,7 @@ variable "private_subnet1" {
   type        = string
   default     = ""
 }
-variable "private_subnet2" {
+variable "public_subnet2" {
   description = "Please provide subnet CIDR block"
   type        = string
   default     = ""
@@ -34,3 +34,9 @@ variable "private_subnet3" {
   type        = string
   default     = ""
 }
+variable "azur-network-security" {
+  description = "Please provide subnet security group id"
+  
+}
+variable "access_key"
+  descryption = "please provide access_key"
